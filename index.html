@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agdasima&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(32, 32, 32);
+            margin: 0;
+            /* Remove default body margin */
+        }
+
+        #head {
+            background-color: darkslateblue;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            /* Set z-index to ensure it appears above other elements */
+        }
+
+        #title {
+            font-family: 'Bagel Fat One', cursive;
+            font-size: 4.3vw;
+            color: aliceblue;
+            padding: 10px;
+            margin: 0;
+        }
+
+        #search {
+            width: 35vw;
+            background-color: aliceblue;
+            height: calc(100vh - var(--head-height));
+            position: absolute;
+            /* Use absolute positioning */
+            top: var(--head-height);
+            left: 0;
+        }
+
+        :root {
+            --head-height: 0;
+        }
+
+        #result {
+            height: calc(100vh - var(--head-height));
+            position: absolute;
+            /* Use absolute positioning */
+            top: var(--head-height);
+            right: 0;
+            width: 65vw;
+        }
+
+        .buck {
+            width: 35vw;
+            height: 12vh;
+            border: 1px solid black;
+            background-color: aliceblue;
+            margin: 5px 5px 15px 25px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            font-size: 2vw;
+            padding: 0;
+            margin: 2px;
+            font-family: 'Agdasima', sans-serif;
+        }
+
+        p {
+            padding: 0;
+            margin: 2px;
+            font-family: 'Agdasima', sans-serif;
+            font-size: 2vw;
+        }
+
+        h2 {
+            font-family: 'Agdasima', sans-serif;
+            font-size: 3vw;
+        }
+
+        #sr {
+            position: relative;
+            margin: 5px 5px 40px 5px;
+            left: 20px;
+            top: 20px;
+            color: aliceblue
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <a id="title">Unify</a>
+        <!-- <a>Who are we?</a>
+    <a>Contact Us</a> -->
+    </div>
+
+    <div id="search">
+        <h2>Search Filters</h2>
+        <form action="process.php" method="post">
+            <label for="tech">All</label>
+            <input type="checkbox" id="all" value="all" name="ind[]">
+            <label for="health">Healthcare</label>
+            <input type="checkbox" id="health" value="health" name="ind[]">
+            <label for="tech">Technology</label>
+            <input type="checkbox" id="tech" value="tech" name="ind[]">
+            <label for="food">Food preparation</label>
+            <input type="checkbox" id="food" value="food" name="ind[]">
+            <label for="hosp">Hospitality</label>
+            <input type="checkbox" id="hosp" value="hosp" name="ind[]">
+            <label for="cloud">Cloud Computing</label>
+            <input type="checkbox" id="cloud" value="cloud" name="ind[]">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="result">
+        <h2 id="sr">Search Results:</h2>
+        <div class="buck">
+            <h3>McDonalds</h3>
+            <p>Paper straws</p>
+        </div>
+    </div>
+
+    <script>
+        const navbar = document.querySelector('#head'); // Use correct selector '#head' instead of '.head'
+        const navbarHeight = navbar.offsetHeight;
+        document.documentElement.style.setProperty('--head-height', `${navbarHeight}px`);
+    </script>
+
+</body>
+
+</html>
