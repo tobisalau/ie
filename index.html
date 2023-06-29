@@ -60,7 +60,7 @@
         }
 
         .buck {
-            width: 35vw;
+            width: 55vw;
             height: 12vh;
             border: 1px solid black;
             background-color: aliceblue;
@@ -106,7 +106,7 @@
 
     <div id="search">
         <h2>Search Filters</h2>
-        <form action="process.php" method="post">
+        <form action="javascript:processy()" method="post">
             <label for="tech">All</label>
             <input type="checkbox" id="all" value="all" name="ind[]">
             <label for="health">Healthcare</label>
@@ -136,6 +136,36 @@
         const navbar = document.querySelector('#head'); // Use correct selector '#head' instead of '.head'
         const navbarHeight = navbar.offsetHeight;
         document.documentElement.style.setProperty('--head-height', `${navbarHeight}px`);
+
+        function processy() {
+            if (document.getElementById('all').checked) {
+                var p1 = document.createElement("div");
+                p1.classList.add("buck");
+                var p2 = document.createElement("h3");
+                var p4 = document.createTextNode("Halifax");
+                p2.appendChild(p4);
+                var p6 = document.createElement("p");
+                var p5 = document.createTextNode("Spare cloud computing capacity, not guaranteed");
+                p6.appendChild(p5);
+                p1.appendChild(p2);
+                p1.appendChild(p6);
+                var e1 = document.createElement("div");
+                e1.classList.add("buck");
+                var e2 = document.createElement("h3");
+                var e4 = document.createTextNode("KFC");
+                e2.appendChild(e4);
+                var e6 = document.createElement("p");
+                var e5 = document.createTextNode("Paper straw order");
+                e6.appendChild(e5);
+                e1.appendChild(e2);
+                e1.appendChild(e6);
+                var ty = document.getElementById("result");
+                ty.appendChild(p1);
+                ty.appendChild(e1);
+            }
+
+
+        }
     </script>
 
 </body>
